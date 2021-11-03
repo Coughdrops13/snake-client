@@ -12,9 +12,9 @@ const connect = function() {
     console.log('Successfully Connected to Game Server!');
     conn.write('Name: CPR');
     // conn.write('Move: up');
-    setInterval(() => {
-      conn.write('Move: up');
-    }, 100);
+    // setInterval(() => {
+    //   conn.write('Move: up');
+    // }, 100);
   });
 
   conn.on('data', data => {
