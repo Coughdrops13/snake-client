@@ -1,20 +1,17 @@
 const net = require('net');
+const { IP, PORT, } = require('./constants');
 
 const connect = function() {
   const conn = net.createConnection({
-    host: '165.227.47.243',
-    port: 50541,
+    host: IP,
+    port: PORT,
   });
 
   conn.setEncoding('utf8');
 
   conn.on('connect',() => {
     console.log('Successfully Connected to Game Server!');
-    conn.write('Name: CPR');
-    // conn.write('Move: up');
-    // setInterval(() => {
-    //   conn.write('Move: up');
-    // }, 100);
+    conn.write("Name: CPR");
   });
 
   conn.on('data', data => {
@@ -23,7 +20,7 @@ const connect = function() {
   });
 
   conn.on('end', data => {
-    console.log('end data:',data);
+    console.log('bye');
   });
 
   return conn;
